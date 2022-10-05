@@ -1,0 +1,23 @@
+{
+  "name": "projectset",
+  "version": "1.0.0",
+  "description": "",
+  "type":"module",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SugarSyrup/projectset.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SugarSyrup/projectset/issues"
+  },
+  "homepage": "https://github.com/SugarSyrup/projectset#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
