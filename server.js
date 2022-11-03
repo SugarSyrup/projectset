@@ -7,7 +7,9 @@ import parseurl from "parseurl";
 
 import "./src/db.js";
 
-import rootRouter from "./src/rootRouter.js";
+import rootRouter from "./src/Routers/rootRouter.js";
+import apiRouter from "./src/Routers/apiRouter.js";
+import userRouter from "./src/Routers/userRouter.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -28,6 +30,7 @@ app.use(session({
 
 app.use(express.static('views'));
 app.use("/", rootRouter);
+app.use("/api", apiRouter);
 
 app.listen(port, () => {
     console.log('express server is learing : http://localhost:3000');
