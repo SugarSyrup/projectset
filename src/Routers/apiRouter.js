@@ -1,6 +1,6 @@
 import express from "express";
 
-import {getUser, postUser, getNameCard} from 'apiController';
+import {getUser, postUser, getNameCard} from '../controllers/apiController.js';
 
 const apiRouter = express.Router();
 

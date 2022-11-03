@@ -6,7 +6,9 @@ html(lang="en")
         form(method="POST")
             input(name="id", type="text" placeholder="ID" required)
             input(name="pw", type="password" placeholder="PW" required)
-            button Submit
-        button Join
+            a(href="/my-profile")
+                button Submit
+        a(href="/join")
+            button Join
 
         a(href="/join/github") Join from Github

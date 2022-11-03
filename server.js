@@ -31,7 +31,7 @@ app.use(session({
 app.use(express.static('views'));
 app.use("/", rootRouter);
 app.use("/api", apiRouter);
-
+app.use("/user", userRouter);
 app.listen(port, () => {
     console.log('express server is learing : http://localhost:3000');
 })

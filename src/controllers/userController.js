@@ -26,10 +26,10 @@ export const postLogin = async (req,res) => {
         return res.redirect("/");
     }
 
-    // req.session.user = _user;
-    // req.session.isLoggedIn = true;
+    req.session.user = _user;
+    req.session.isLoggedIn = true;
     
-    return res.render("status", {status : "Success", user : _user});
+    return res.redirect("/user/my-profile");
 }
 
 export const getJoin = (req,res) => {
@@ -63,4 +63,15 @@ export const postJoin = async (req,res) => {
 
 export const getJoinGit = async(req,res) => {
     
+}
+
+
+//user Router
+export const getMyProfile = (req,res) => {
+    // const _user = User.findById()
+    
+    console.log("my-profile");
+    console.log(req.session);
+    
+    return res.render("myProfile", {status:"LogIn Complete", user: JSON.stringify(req.session.user)});
 }
