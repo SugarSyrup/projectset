@@ -40,3 +40,7 @@ export const getNameCardList = (req,res) => {
 export const getNameCard = (req,res) => {
 
 }
+
+export const getShorten = (req,res) => {
+    
+}

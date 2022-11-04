@@ -14,14 +14,22 @@
     * link, share : 중복되지 않는 id로 구성된 link 생성 or id
     * edit : 클릭시 사용자 본인일 경우 수정 가능
 
-    - /api/:link : link를 통해 명함 정보 호출
+    - //:link : link를 통해 명함 정보 호출
+
+:link
 
 ## DataBase
 
 User{
+    User-Infomation,
     nameCards:[]
 }
 
 NameCard{
-    userID
+    userID,
+    _id => unique Link
+}
+
+Sessions {
+
 }
