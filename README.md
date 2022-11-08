@@ -37,3 +37,6 @@ Sessions {
 
 GitHub + Google => passport.js
 Naver, Kakao => 생성 예정
+
+server.js => auth login 만드는 중....
+statusUI 확인할 차례

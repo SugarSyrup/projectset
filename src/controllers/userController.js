@@ -1,13 +1,13 @@
 import User, { createHashedPassword, verifyPassword } from '../modules/User.js';
 
 export const getLogin = (req,res) => {
-    console.log(req.session);
-    if(req.session.num == undefined) {
-        req.session.num = 1;
-    } else {
-        req.session.num = req.session.num + 1;
-    }
-    let views = req.session.num;
+    // console.log(req.session);
+    // if(req.session.num == undefined) {
+    //     req.session.num = 1;
+    // } else {
+    //     req.session.num = req.session.num + 1;
+    // }
+    // let views = req.session.num;
     return res.render("login");
 }
 

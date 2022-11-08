@@ -3,7 +3,9 @@ import session from 'express-session';
 // import filestore from 'session-file-store';
 import MongoStore from 'connect-mongo';
 
-import parseurl from "parseurl";
+//Passport JS
+import passport from 'passport';
+import LocalStratgy from 'passport-local';
 
 import "./src/db.js";
 
@@ -18,7 +20,7 @@ app.set('views', process.cwd() + "/src/views");
 app.set('view engine','pug');
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:false}));
 
 app.use(session({
     secret:'keyboard cat', //Required, 타인에게 노출되면 안되는 코드, 
@@ -26,7 +28,37 @@ app.use(session({
     saveUninitialized: true, //Session 이 필요하기 전까지는 Session을 구동하지 않는다.
     store: MongoStore.create({mongoUrl:`mongodb+srv://sugarsyrup:SvyzBi5alHMKkuOv@namecard.7nnpztw.mongodb.net/?retryWrites=true&w=majority`}),
     cookie:{maxAge:(3.6e+6)*24}
-}))
+}));
+
+//passport JS
+//middleware 입력
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+    console.log('serializeUser', user);
+    done(null, user);
+})
+passport.deserializeUser(function(id, done) {
+    console.log('deserializeUser', id);
+    done(null, id);
+})
+
+//passport 사용
+passport.use(new LocalStratgy.Strategy({
+        usernameField: 'id',
+        passwordField: 'pw'
+    },
+    function(username, password, done) {
+        return done(null, username);
+    }
+))
+
+//'/'로 접근시
+app.post('/', passport.authenticate('local', {
+    successRedirect: '/user/my-profile',
+    failureRedirect: '/'
+  }));
 
 app.use(express.static('views'));
 app.use("/", rootRouter);
