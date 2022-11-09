@@ -73,5 +73,5 @@ export const getMyProfile = (req,res) => {
     console.log("my-profile");
     console.log(req.session);
     
-    return res.render("myProfile", {status:"LogIn Complete", user: JSON.stringify(req.session.user)});
+    return res.render("myProfile", {status:"LogIn Complete", user: JSON.stringify(req.session.passport.user)});
 }

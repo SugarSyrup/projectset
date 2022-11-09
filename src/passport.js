@@ -2,6 +2,9 @@
 import passport from 'passport';
 import LocalStratgy from 'passport-local';
 
+//DB
+import User, {verifyPassword} from './modules/User.js';
+
 passport.serializeUser(function(user, done) {
     console.log('serializeUser', user);
     done(null, user);
@@ -17,7 +20,18 @@ passport.use(new LocalStratgy.Strategy({
         passwordField: 'pw'
     },
     function(username, password, done) {
-        return done(null, username);
+        User.findOne({id : username}, async (err,user) => {
+            if(err) { return done(err); }
+            if(!user) {
+                return(done, false, {message:"Incorrect Username."});
+            }
+            const _pw = await verifyPassword(password, user.salt, user.pw);
+            if(!_pw) {
+                return(done, false, {message:"Incorrect Password"});
+            }
+            
+            return done(null, user);
+        })
     }
 ));
 

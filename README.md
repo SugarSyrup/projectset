@@ -1,4 +1,14 @@
+## 기술 스택
+FrontEnd : html, css, javascript
+
+BackEnd : NodeJS(express) passport pug bcrypt html2canvas
+
+db : mongodb AWSS3
+
+devops : git
+
 ## Routing
+:현재 안맞음..
 
 / : 홈 페이지(현재 로그인 페이지)
 /login : 로그인 페이지
@@ -16,6 +26,9 @@ _ edit : 클릭시 사용자 본인일 경우 수정 가능
     - //:link : link를 통해 명함 정보 호출
 
 :link
+
+GET api/link
+
 
 ## DataBase
 
@@ -38,5 +51,11 @@ Sessions {
 GitHub + Google => passport.js
 Naver, Kakao => 생성 예정
 
-server.js => auth login 만드는 중....
-statusUI 확인할 차례
+PassportJS <=> MongoDB 연동하기
+auth, root Router 정리
+
+
+## 목표
+html2Canvas
+PassportJs + OAuth
+Routing 정리 => ReadME에 정리
