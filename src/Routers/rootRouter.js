@@ -4,7 +4,10 @@ import { getLogin, postLogin, getJoin, postJoin, getJoinGit} from "../controller
 
 const rootRouter = express.Router();
 
-rootRouter.route("/").get(getLogin).post(postLogin);
+rootRouter.get("/", (req,res) => {
+    res.redirect("/auth/login");
+})
+// rootRouter.route("/").get(getLogin).post(postLogin);
 rootRouter.route("/join").get(getJoin).post(postJoin);
 rootRouter.route("/join/github").get(getJoinGit);
 

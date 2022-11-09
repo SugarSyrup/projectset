@@ -3,15 +3,13 @@ import session from 'express-session';
 // import filestore from 'session-file-store';
 import MongoStore from 'connect-mongo';
 
-//Passport JS
-import passport from 'passport';
-import LocalStratgy from 'passport-local';
-
 import "./src/db.js";
+import passport from "./src/passport.js";
 
 import rootRouter from "./src/Routers/rootRouter.js";
 import apiRouter from "./src/Routers/apiRouter.js";
 import userRouter from "./src/Routers/userRouter.js";
+import authRouter from "./src/Routers/authRouter.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -31,39 +29,16 @@ app.use(session({
 }));
 
 //passport JS
-//middleware 입력
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser(function(user, done) {
-    console.log('serializeUser', user);
-    done(null, user);
-})
-passport.deserializeUser(function(id, done) {
-    console.log('deserializeUser', id);
-    done(null, id);
-})
-
-//passport 사용
-passport.use(new LocalStratgy.Strategy({
-        usernameField: 'id',
-        passwordField: 'pw'
-    },
-    function(username, password, done) {
-        return done(null, username);
-    }
-))
-
-//'/'로 접근시
-app.post('/', passport.authenticate('local', {
-    successRedirect: '/user/my-profile',
-    failureRedirect: '/'
-  }));
-
 app.use(express.static('views'));
+
 app.use("/", rootRouter);
 app.use("/api", apiRouter);
 app.use("/user", userRouter);
+app.use("/auth", authRouter);
+
 app.listen(port, () => {
     console.log('express server is learing : http://localhost:3000');
 })
