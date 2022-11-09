@@ -69,6 +69,7 @@ export const getJoinGit = async(req,res) => {
 //user Router
 export const getMyProfile = (req,res) => {
     // const _user = User.findById()
+    // console.log(req.user);
     
     console.log("my-profile");
     console.log(req.session);

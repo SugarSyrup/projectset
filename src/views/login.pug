@@ -6,8 +6,7 @@ html(lang="en")
         form(action="/auth/login" method="POST")
             input(name="id", type="text" placeholder="ID" required)
             input(name="pw", type="password" placeholder="PW" required)
-            a(href="/my-profile")
-                button Submit
+            input(type="submit")
         a(href="/join")
             button Join
 

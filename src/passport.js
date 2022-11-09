@@ -9,9 +9,11 @@ passport.serializeUser(function(user, done) {
     console.log('serializeUser', user);
     done(null, user);
 })
-passport.deserializeUser(function(id, done) {
-    console.log('deserializeUser', id);
-    done(null, id);
+passport.deserializeUser(async (user, done) => {
+    console.log('deserializeUser', user.id);
+    const _user = await User.findOne({id: user.id});
+    console.log("asdf", _user);
+    done(null, _user);
 })
 
 //passport 사용
@@ -23,15 +25,17 @@ passport.use(new LocalStratgy.Strategy({
         User.findOne({id : username}, async (err,user) => {
             if(err) { return done(err); }
             if(!user) {
-                return(done, false, {message:"Incorrect Username."});
+                console.log("Incorrect Username");
+                return done(null, false, {message:"Incorrect Username."});
             }
             const _pw = await verifyPassword(password, user.salt, user.pw);
             if(!_pw) {
-                return(done, false, {message:"Incorrect Password"});
+                console.log("not Matche ps");
+                return done(null, false, {message:"Incorrect Password"});
             }
             
             return done(null, user);
-        })
+        });
     }
 ));
 
