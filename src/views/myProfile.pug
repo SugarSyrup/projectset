@@ -3,7 +3,17 @@ head
 body 
     h1 #{status}
 
-    span=user
+    span=user.id
+    br
+    span=user.name
+    br
+    span=user.email
+    br
+    span=user.number
+    br
+    span=user.links[0]
+    br
+    span=user.createAt
 
     a(href="/user/createCard")
         span CreateCard &rarr

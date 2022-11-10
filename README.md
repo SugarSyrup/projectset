@@ -8,27 +8,35 @@ db : mongodb AWSS3
 devops : git
 
 ## Routing
-:현재 안맞음..
+ver2
+```
+routes
 
-/ : 홈 페이지(현재 로그인 페이지)
-/login : 로그인 페이지
-/join : 회원가입 페이지
-/join/... : 소셜 회원가입 페이지들
+GET /
 
-/user/myPage : 간략한 개인정보 + 소유중인 명함(max : 3) - /api/: userID : 유저 정보 호출 or api없이 session 이용해서 간단하게 가능할지도?
+/auth
+GET, POST /auth/login
+GET, POST /auth/join
 
-/user/details : 명함 제작에 필요한 추가 정보 있으면 작성(현재 공백)
+auth OAuth2.0
+/auth/join/google
+/auth/join/kakao
+/auth/join/naver
 
-/namecard : 명함 보여지는 사이트 + 사용자 본인의 경우 수정가능
-_ link, share : 중복되지 않는 id로 구성된 link 생성 or id
-_ edit : 클릭시 사용자 본인일 경우 수정 가능
+POST /auth/logout
 
-    - //:link : link를 통해 명함 정보 호출
+/user
+GET, Post /user/profile (POST: edit-profile)
+GET, Post /user/createcard
 
-:link
+(라우팅 방식 고민중...)
+GET, Post /user/namecard
+GET, Post /namecard/[:id]
 
-GET api/link
-
+/api
+/api/namecard/[:id]
+/api/
+```
 
 ## DataBase
 

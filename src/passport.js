@@ -2,17 +2,16 @@
 import passport from 'passport';
 import LocalStratgy from 'passport-local';
 
-//DB
+//User DB
 import User, {verifyPassword} from './modules/User.js';
 
 passport.serializeUser(function(user, done) {
-    console.log('serializeUser', user);
+    console.log('serializeUser');
     done(null, user);
 })
 passport.deserializeUser(async (user, done) => {
-    console.log('deserializeUser', user.id);
+    console.log('deserializeUser');
     const _user = await User.findOne({id: user.id});
-    console.log("asdf", _user);
     done(null, _user);
 })
 
