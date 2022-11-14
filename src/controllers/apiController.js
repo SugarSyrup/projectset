@@ -44,3 +44,7 @@ export const getNameCard = (req,res) => {
 export const getShorten = (req,res) => {
     
 }
+
+export const postShorten = (req, res) => {
+    
+}

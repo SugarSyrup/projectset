@@ -28,10 +28,7 @@ POST /auth/logout
 /user
 GET, Post /user/profile (POST: edit-profile)
 GET, Post /user/createcard
-
-(라우팅 방식 고민중...)
-GET, Post /user/namecard
-GET, Post /namecard/[:id]
+GET, Post /user/namecard/[:id]
 
 /api
 /api/namecard/[:id]

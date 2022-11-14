@@ -1,7 +1,7 @@
 import express from "express";
 import passport from "../passport.js";
 
-import {getLogin, getJoin, postJoin, postLogout} from '../controllers/authController.js';
+import {getLogin, getJoin, postJoin} from '../controllers/authController.js';
 
 const authRouter = express.Router();
 

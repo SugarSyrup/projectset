@@ -33,6 +33,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static('views'));
+app.use(express.static("static"));
 
 app.use("/", rootRouter);
 app.use("/api", apiRouter);
