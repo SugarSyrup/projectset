@@ -13,7 +13,17 @@ authRouter.route("/login").get(getLogin).post(
 );
 // authRouter.post("/login_process", loginProcess);
 authRouter.route("/join").get(getJoin).post(postJoin);
-authRouter.route("/join/google");
+
+authRouter.route("/google")
+    .get(passport.authenticate("google", { scope: ["email", "profile"] }));
+
+authRouter.route("/google/callback")
+    .get(passport.authenticate("google", {
+        successRedirect: "/user/profile",
+        failureRedirect: "/auth/login",
+    })
+);
+
 authRouter.route("/join/kakao");
 authRouter.route("/join/naver");
 authRouter.route("/logout").post((req, res) => {

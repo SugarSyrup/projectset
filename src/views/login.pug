@@ -8,7 +8,11 @@ html(lang="en")
             input(name="id", type="text" placeholder="ID" required)
             input(name="pw", type="password" placeholder="PW" required)
             input(type="submit")
-        a(href="/join")
+        a(href="/auth/join")
             button Join
 
-        a(href="/join/github") Join from Github
+        a(href="/auth/github")
+            button Join Github
+        
+        a(href="/auth/google")
+            button Join Google

@@ -59,8 +59,18 @@ Naver, Kakao => 생성 예정
 PassportJS <=> MongoDB 연동하기
 auth, root Router 정리
 
+## DEsign?
+
+Login => auth
+myPage
+
+2번째 단계.. 가 되야 할 예정
+: Footer(Home, Cards(cardlink, charts(views)), Create, settings)
 
 ## 목표
-html2Canvas
-PassportJs + OAuth
-Routing 정리 => ReadME에 정리
+[] html2Canvas
+
+[] PassportJs + OAuth
+    : Google, Naver, Kakao, Github
+
+[✔] Routing 정리 => ReadME에 정리

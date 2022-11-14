@@ -1,6 +1,6 @@
 import  express  from "express";
 import session from 'express-session';
-// import filestore from 'session-file-store';
+import dotenv from 'dotenv';
 import MongoStore from 'connect-mongo';
 
 import "./src/db.js";
@@ -33,7 +33,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static('views'));
-app.use(express.static("static"));
+app.use(express.static("public"));
 
 app.use("/", rootRouter);
 app.use("/api", apiRouter);
