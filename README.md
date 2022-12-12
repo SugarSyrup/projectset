@@ -67,6 +67,12 @@ myPage
 2번째 단계.. 가 되야 할 예정
 : Footer(Home, Cards(cardlink, charts(views)), Create, settings)
 
+## 필요한 기능
+1. Login/ signup
+2. 사용자 정보가 포함된  전자명함 DB
+3. 베포
+4. 프론트앤드를 따로 띄울지 그냥 express render 할때 보낼지 고민중..
+
 ## 목표
 [] html2Canvas
 
