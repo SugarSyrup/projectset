@@ -1,6 +1,9 @@
 import  express  from "express";
 import session from 'express-session';
-import dotenv from 'dotenv';
+import path from 'path';
+const __dirname = path.resolve();
+
+import ejs from 'ejs';
 import MongoStore from 'connect-mongo';
 
 import "./src/db.js";
@@ -13,9 +16,6 @@ import authRouter from "./src/Routers/authRouter.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
-
-app.set('views', process.cwd() + "/src/views");
-app.set('view engine','pug');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
@@ -32,8 +32,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static('views'));
 app.use(express.static("public"));
+app.set('views', path.join(__dirname, 'src/views'));
+
+app.engine('html', ejs.renderFile);
+app.set('view engine', 'html');
+//app.use(express.static('views'));
 
 app.use("/", rootRouter);
 app.use("/api", apiRouter);

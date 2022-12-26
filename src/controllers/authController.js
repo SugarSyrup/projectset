@@ -9,7 +9,7 @@ export const getLogin = (req,res) => {
     //     req.session.num = req.session.num + 1;
     // }
     // let views = req.session.num;
-    return res.render("login");
+    return res.render("login.html");
 }
 
 // export const postLogin = async (req,res) => {
