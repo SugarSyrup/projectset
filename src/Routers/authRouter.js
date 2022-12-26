@@ -1,7 +1,7 @@
 import express from "express";
 import passport from "../passport.js";
 
-import {getLogin, getJoin, postJoin} from '../controllers/authController.js';
+import {getLogin, getJoin, postJoin, postLogin} from '../controllers/authController.js';
 
 const authRouter = express.Router();
 
@@ -11,6 +11,8 @@ authRouter.route("/login").get(getLogin).post(
         failureRedirect: '/auth/login'
     })
 );
+
+    
 // authRouter.post("/login_process", loginProcess);
 authRouter.route("/join").get(getJoin).post(postJoin);
 

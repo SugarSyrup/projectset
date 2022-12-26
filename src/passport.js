@@ -34,6 +34,8 @@ passport.use(new LocalStratgy({
         passwordField: 'pw'
     },
     function(username, password, done) {
+        console.log(username);
+        console.log('start');
         User.findOne({id : username}, async (err,user) => {
             if(err) { return done(err); }
             if(!user) {

@@ -12,26 +12,27 @@ export const getLogin = (req,res) => {
     return res.render("login.html");
 }
 
-// export const postLogin = async (req,res) => {
-//     const {id, pw} = req.body;
+export const postLogin = async (req,res) => {
+    const {id, pw} = req.body;
+    console.log(req.body);
     
-//     const _user = await User.findOne({id});
-//     if(!_user) {
-//         console.log("id not founded");
-//         return res.redirect("/");
-//     }
+    const _user = await User.findOne({id});
+    if(!_user) {
+        console.log("id not founded");
+        return res.redirect("/");
+    }
 
-//     const _pw = await verifyPassword(pw, _user.salt, _user.pw);
-//     if(!_pw) {
-//         console.log("password is not matched!");
-//         return res.redirect("/");
-//     }
+    const _pw = await verifyPassword(pw, _user.salt, _user.pw);
+    if(!_pw) {
+        console.log("password is not matched!");
+        return res.redirect("/");
+    }
 
-//     req.session.user = _user;
-//     req.session.isLoggedIn = true;
+    req.session.user = _user;
+    req.session.isLoggedIn = true;
     
-//     return res.redirect("/user/my-profile");
-// }
+    return res.redirect("/user/my-profile");
+}
 
 export const getJoin = (req,res) => {
     return res.render("join");
