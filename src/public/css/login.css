@@ -28,10 +28,11 @@ body {
   div.login {
     height: 55%;
     margin: 30px;
+    margin-bottom:0px;
     font-size: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
   }
   
   div.id {
