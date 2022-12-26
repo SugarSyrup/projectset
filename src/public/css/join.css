@@ -1,0 +1,125 @@
+html {
+    font-size: 62.5%;
+  }
+  body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+  
+    background-color: white;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sign-up-main-con {
+    margin: 0;
+    width: 90%;
+    height: 100%;
+  
+    background: white;
+  }
+  
+  .sign-up-logo {
+    height: 15%;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .sign-up-con {
+    height: 50%;
+    margin: 30px;
+    margin-top: 60px;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .sign-up-id {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sign-up-info {
+    padding: 0 0 0 10px;
+    height: 40px;
+    font-size: 1.5rem;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .sign-up-submit {
+    width: 100%;
+    margin-top: 20px;
+    height: 40px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+  
+  .sign-up-submit:hover {
+    background-color: #4831d4;
+    color: white;
+    transition-duration: 2s;
+  }
+  
+  p {
+    font-size: 1.5rem;
+  }
+  .sign-up-con-underline {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 12px;
+    margin: 0px;
+    height: 10%;
+  }
+  .sign-up-con-underline::before,
+  .sign-up-con-underline::after {
+    content: "";
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 16px;
+  }
+  .sign-up-SNSlogin {
+    margin: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  
+  .sign-up-SNSlogin-naver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sign-up-SNSlogin-google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sign-up-SNSlogin-kakao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (max-height: 700px) {
+    h1 {
+      margin: 0.4em 0 0.4em 0;
+    }
+    p {
+      margin: 0.5em 0 0.5em 0;
+    }
+  }
+  
