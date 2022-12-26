@@ -67,7 +67,6 @@ body {
   
   div.SNSlogin {
     margin: 30px;
-    height: 30%;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
